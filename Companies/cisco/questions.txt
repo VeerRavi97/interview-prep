@@ -1,0 +1,2 @@
+Can Queen attack opposition? (diagonal,row,column)
+(sum of largest prime factor+ that number) ,given array of integers

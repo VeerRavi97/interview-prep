@@ -1,0 +1,80 @@
+1. level order traversal(BFS)
+2.Print binary tree in zig zag order
+
+3. Preoder Traversal/Reursive and iterative/preorder traversal of a binary tree without recursion
+4. Inorder Traversal/Inorder traversal of a binary tree without recursion
+5. Postorder Traversal/postorder traversal of a binary tree without recursion
+
+6.ZigZag Tree Traversal
+7.Spiral tree traversal/ one stack
+8.Diagonal Traversal of Binary Tree
+9.Boundary Traversal of binary tree
+
+
+10.size and hieght of a binary tree
+11.Print cousins of a given node in Binary Tree/cousins or not
+12.level of a tree
+13..Diameter of a tree
+14.Check if a binary tree is subtree of another binary tree 
+15.Check whether a given binary tree is perfect or not
+16.Check if two trees are Mirror
+17.Determine if Two Trees are Identical
+
+
+18.Print Left View of a Binary Tree
+19.Vertical Sum in Binary Tree | Set 2 (Space Optimized) / vertical order traversal
+20.Print Right View of a Binary Tree
+21.Top view of a binary tree
+22.Bottom view of a binary tree
+
+23.Find deepest node
+24.Maximum width of a binary tree
+25.Find Minimum Depth of a Binary Tree
+26.Write a Program to Find the Maximum Depth or Height of a Tree
+
+27.Given a binary tree, print all root-to-leaf paths
+28.Print nodes at a distance k from a given node
+29.distance between leftmost leaf to rightmost leaf.
+30.Given two nodes, find the shortest path in the given binary tree and binary search tree
+
+31.Convert a given Binary Tree to Doubly Linked List | Set 3
+32.Maximum Path Sum in a Binary Tree
+33.Lowest Common Ancestor in a Binary Tree
+34.Find distance between two nodes of a Binary Tree/ minimum distance between any two nodes
+35.Convert a given tree to its Sum Tree
+36.Serialize and Deserialize a Binary Tree
+37.Count subtrees that sum up to a given value x
+38.number of visible nodes in a binary tree 
+39.Connect nodes at same level/Connect nodes at same level using constant extra space
+40.Clone a Binary Tree with Random Pointers
+
+
+
+
+// BST
+Sorted Array to Balanced BST
+Find a pair with given sum in a Balanced BST
+K’th Largest element in BST
+A program to check if a binary tree is BST or not
+Count the Number of Binary Search Trees present in a Binary Tree
+Total number of possible Binary Search Trees and Binary Trees with n keys
+Find median of BST in O(n) time and O(1) space(Binary search tree)
+Largest BST in a Binary Tree
+Binary Search Tree | Set 2 (Delete)
+Inorder Successor in Binary Search Tree
+Find k-th smallest element in BST
+https://stackoverflow.com/questions/20990808/bst-finding-next-highest-node
+Merge Two Balanced Binary Search Trees
+Construct BST from given preorder traversal /Check if a given array can represent Preorder Traversal of Binary Search Tree
+Second largest element in BST
+Shortest distance between two nodes in BST
+determine if a binary tree is height-balanced?
+
+
+
+//Heap
+Heap insertion, deletion and heapify
+
+
+// AVL
+AVL tree (Rotation, Insertion, Deletion)

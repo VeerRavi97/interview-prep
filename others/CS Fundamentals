@@ -1,0 +1,155 @@
+What is caching and how it is used. Types of cache eviction policies. Any cache you might have used for your project. Explain.
+LRU cache
+Where shared memory is stored (in user space or kernel space) ? and why ?
+Discussion on Inter Process Communication : Shared Memory and Sockets.
+Why sockets are preferred over Shared Memory.
+What is race condition?
+LFU (Least Frequently Used) Cache Implementation
+Increasing RAM increases performance because
+Binary search recurrence relation
+Quicksort worst-case complexity when the pivot is the n/4 smallest element using an O(n) algorithm?
+The best time complexity for finding the nth Fibonacci number // O(1) formula
+Questions on deadlock, handling, and its prevention. real example
+How SSH works
+Deep dive into LRU, and its working in real computers like what is stored in the cache
+Questions on page faults, thrashing
+Practical usage of stack and queue in computers (ex- stack -> recursion, queue -> process scheduling)
+OS -> process, thread, difference b/w them.
+DBMS -> normalization, De-normalisation, deadlock, deadlock avoidance.
+How you will handle Transactions, concurrency etc .
+Pointers, heap memory allocation, dangling pointers, paging from operating systems.
+Difference between threads and processes.
+Deadlocks and its prevention
+Cost of polymorphism in OOPs
+Implementation of virtual methods, dynamic binding, vtables etc.
+What is O(n) and what’s its use?
+Mutex vs Semaphores with an real life example.
+Normalization.
+Program for Best Fit algorithm in Memory Management
+When and why merge sort is preferred over quicksort
+What is your favorite algorithm and why.
+Avoid Dangling or wild pointers while writing code, initialize variables to NULL
+What and all will happen when you boot up your PC
+What is kernel?
+Difference between Abstraction and Encapsulation
+Why we should use ER diagram? 
+why Normalization?
+Give examples of anomalies if we don’t normalize
+Example of cases when merge sort is not used.
+how hashmap is implemented./https://tekmarathon.com/2012/12/04/hashmap-internal-implementation-analysis-in-java/
+What sorting algorithm should be used for sorting strings
+When merge sort is preferred over quick sort?
+What is semaphore
+Linked List vs Array
+What is critical section problem and how is it solved?
+What is Semaphore?
+What is write lock and what are the conditions of it?
+How to implement SRTFS (preemptive SJF).
+what is virtual memory?y is it so called?
+paging and segmentation concepts.
+What are the advantages of quick sort over merge sort and advantages of array over link list
+explain binary search and proof of its complexity(O(log n))
+Number of child process created when fork() system call is called n times
+Difference between trigger and stored procedure?
+How deadlock is detected?
+Indexing in DBMS
+Types of indexes
+How indexing is done in DB(b-tree and b+trees)
+Views ,types of views its advantages
+What is resource allocation graph and how its related to deadlock,what are the nodes in that graph?
+Difference between multi -tasking, multi-processing and multiprogramming, 
+Virtual Memory, why to use Virtual memory, issues related to virtual memory
+What happens when you type www.amazon.com in Web Browser
+Inner Join vs Outer Join
+SQL query to find second highest salary?
+TCP v/s UDP
+What are data structures in which you are most uncomfortable.
+Implement a LRU cache, extended for LRU with ttl at each block.
+What is Lock? Asked about semaphores, virtual memory, process scheduling.
+Implement hash map of your own
+Follow up:
+1. How to handle a collision situation
+2. How can we reduce the time complexity of rehashing process ??
+Types of Binary Tree
+What is DNS?
+On entering a URL in a browser, explain the detailed procedure in which the request is handled by the browser and the result is obtained for the given search query.
+Under which conditions you will use abstract class and when you will use interfaces
+The difference between Java and C++. Advantages and disadvantages of each.
+Which language you are most comfortable with. Rate yourself out of 5.
+run time polymorphism works in C++. How C++ resolves it.
+difference between class and structure in C++. How to implement an interface in C++.
+Algorithms | Sorting | Question 11
+External Sorting
+secondary memory, About disk technology, sector, seek time, rotational delay
+Implement substring function
+What is memory hierarchy
+Difference in virtual ans physical memory
+How cache works?
+What do you understand by time complexity?
+Demand Paging. Their use.
+Name layers of the OSI Model with protocols belonging to the layers
+Difference between Router and Hub? Which layers do these devices belong to
+What is the diamond problem and how is it solved?
+Basic OS concepts like PCB. What does it store
+What is a IP”, “Why a machine needs a IP”, 
+“What is a static and dynamic IP, and when one is preferred over another”,
+ “Firewalls”, “Encryption Methods / Cryptography”,  “about HTTP and HTTPS protocol” 
+states of DP.
+routing policies like weighted routing 
+How would you make loading of webpages faster?
+How to perform the testing of code. Write all the test cases including the boundary ones for the above two codes.
+Real life implementation of abstraction and inheritance.
+Tower Of Hanoi Problem
+Define joins in SQL and explain them
+Define keys. Surrogate keys, primary keys, foreign keys, candidate keys and super keys
+What is encapsulation? Explain with example. How is it useful?
+SQL query to find nth highest salary of an employee
+When do you use overloaded functions and when do you use overrided functions?
+make your own HashTable
+What is operator overloading? Write a code depicting implementation of Operator Overloading.
+Write an operator overloading method for + operator on strings, which concatenates the first string with the reverse of second string.
+Different testing concepts. What is unit testing, integration testing, regression testing? What is the need for each one of them?
+Mutex vs Semaphore
+Threads in General
+Map Internal implementation and its usage
+uestions on GET, PUT, POST methods
+What is Lazy Loading?
+Difference between http and https
+What is deadlock and it’s 4 condition
+Differences between Arrays and Linked Lists. In which situation, you would choose one over the other?
+Worst Case of QuickSort.
+Internal implementation of vector.
+Internal Implemenation of map.
+Exception handling in C++
+Pure virtual function vs virtual function
+Pure Virtual function uses
+Different types of cast and difference between them
+Abstraction vs Interface
+What is a segmentation fault?
+What is a race condition?
+What is an abstract class? Can a class be abstract without abstract methods? Difference between an interface and abstract class.
+Why Java doesn’t support multiple inheritances?
+
+
+OSI model and TCP/IP model and its various layers and their functions
+Memory Leak and a program where this occurs
+General OS concepts
+OOPS concepts eg: Comparison of objects, Everything about Inheritance, Static and Dynamic Binding.
+Bankers algorithm.
+TCP protocol – the three way handshake
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,51 @@
+1.Insetionat at beginning, end and nth position
+2.delete node at nth position
+3.delete without head pointer
+
+4.Program for n’th node from the end of a Linked List
+5.Find the middle of a linked list.
+
+
+
+6.Reverse a linked list
+7.Reverse alternate K nodes in a Singly Linked List
+
+
+8.Sort a given LinkedList. // wny merge sort,not quick sort
+9.Merge two sorted linked list
+10.Merge K sorted linked lists
+
+]
+11.Detect and Remove Loop in a Linked List.find its starting point along with mathematical proofs.
+   Find first node of loop in a linked list.How does this approach work?
+12.Length of loop
+
+13.Remove duplicates from a sorted linked list
+14.Delete all duplicate nodes in an unsorted linked list. Do this in one pass
+
+
+15.Rearrange a given linked list in-place.// reorder list
+16.Function to check if a singly linked list is palindrome
+
+
+17.Add two numbers represented by linked lists | Both lsd first and last
+18.Find intersection of two linked lists
+
+19.Implement stack using linked list
+20.Clone a linked list with next and random pointer
+21.Flattening a Linked List
+
+22.Pairwise swap elements of a given linked list by changing links
+22.Segregate even and odd nodes in a Linked List
+
+23.Delete a node in a Doubly Linked List
+24.Reverse a Doubly Linked List
+
+
+
+
+
+
+
+
+

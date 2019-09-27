@@ -1,0 +1,94 @@
+Design LLD Chess Board Game for 2 players using oops principal/multiplayer
+Create HLD and LLD (oops based) of subscription engine ( eg.   where user can subscribe services like Netflix and Amazon prime).
+Design stack overflow along with its Notification system.
+Design Online Chess Game: Functional & Non-Functional Requirements, HLD, LLD and DB Entity Schema
+Design Alert System for Price Down of a Product
+factory design pattern and its implementation
+Design Swiggy. The different components of the system, databases, apis, notification systems, payment system.
+Design an elevator system./Design Elevator with OOPS concept
+Design a room booking system
+HLD of library system, what should be the DB structure, which type of DB should be used (NoSQL or SQL) and why
+Design Railway Booking System, both HLD and LLD is expected in this round/Design a Railway system 
+HLD for Instagram, What should be DB structure, kind of Database should be used, sharding policy and some other design related questions.
+Design Facebook Timeline (Higher Level Design)
+Design BookmyShow 
+File Convertor like converting xml to Json
+Object oriented design of a parking lot 
+Design the logic for minimising cash flow in an app like ‘Splitwise’.
+Design patterns – Singleton, Builder, Prototype, Factory.
+Latency Management System
+Library Management System
+Design RedBus, add some features from OLA and UBER.
+Design Netflix
+movies reviews aggregator 
+Design ESPN-Cricinfo website Backend, discussion on HLD and LLD and Load Balancer/Design cricket score board.
+Design a Whatsapp
+Design VLC
+Design Tiny URL/bit.ly
+Automatic Parking System
+Design a debugger
+Build an UBER platform
+Build Eclipse IDE
+Design App-Store
+Design a Music Player application [ many use cases were covered ] eg : support for SD card
+Design Gmail – consider scalability , redundancy, brief discussion on CAP Theorem, class diagrams, how to handle attachments
+Design an Online tracking system, similar to how you can track your order on swiggy after you place it on maps.
+Design Recommendation system. How will you generate generate recommendations for millions of users. DB Schema, How will you improve latency? if the user is searching a item, when will you show next recommendations
+doctor appointment System.
+design Truecaller kind of system
+meeting booking system like outlook
+Design Data warehouse placement system
+Design data structures for a very large social network like Facebook or Linkedln
+Design the flight system with src, destination and no of hops
+Design Dating application.
+design a calculator
+Design a musical juke box with functions
+        1) add song
+        2) delete song
+        3) top 10 played song at any point of time
+
+
+What is design pattern? Explain Factory Design Pattern.
+Design parking system
+Design notification system
+Design a dashboard system
+Design a online shipment tracking system
+a) Twitter design considering following functionalities:
+– Post tweet
+– Get the top tweets from the followers
+
+OO design of an elevator. Write interfaces and implementation and logic
+implement-a-phone-directory
+Design Autocomplete or Typeahead Suggestions for Google search
+
+design microsoft search engine Bing
+Design extensible calculator 
+Given a Client-Server model, How will you handle a large number of requests coming?
+How we handle concurrency?
+scalability, fault tolerance, reliability, user experience, load handling 
+server-side loadbalancer
+Discussion on sharding and distributed concepts
+Dependency Injection
+design undo & redo in text editor?
+order management system of MC-Donalds
+Design Hit Counter/http://blog.gainlo.co/index.php/2016/09/12/dropbox-interview-design-hit-counter/
+Singleton Design Pattern | Implementation
+designing a spam email detection system
+Design cricbuzz.
+Object oriented design of a parking lot 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

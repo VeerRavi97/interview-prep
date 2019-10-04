@@ -1,1 +1,4 @@
- difference between conventional and real time sys, types of real time sys, what is priority inversion and priority inheritance.
+ difference between conventional and real time sys, types of real time sys, 
+ what is priority inversion and priority inheritance.
+ explain race condition, deadlock, critical section problem with examples
+threads and processes

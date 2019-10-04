@@ -2,3 +2,6 @@
  what is priority inversion and priority inheritance.
  explain race condition, deadlock, critical section problem with examples
 threads and processes
+TCP/IP protocol suite and went deep in the data link layer
+shared memory systems (like how exactly the memory is shared between processes in different scenario
+virtual memory and paging

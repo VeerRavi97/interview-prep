@@ -1,0 +1,6 @@
+explain C memory map, gave a program and made me point out which variable goes to which part of memory
+what are the different intermediate files while compiling and running a C program.
+WAP to find whether a machine is little endian or big endian.
+Virtual functions
+functions overloading, overriding.
+macros in C, inline functions etc.

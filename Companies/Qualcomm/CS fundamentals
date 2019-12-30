@@ -1,0 +1,53 @@
+ difference between conventional and real time sys, types of real time sys, 
+ what is priority inversion and priority inheritance.
+ explain race condition, deadlock, critical section problem with examples
+threads and processes
+TCP/IP protocol suite and went deep in the data link layer
+shared memory systems (like how exactly the memory is shared between processes in different scenario
+virtual memory and paging
+What are semaphores and what are spinlocks?
+Why is virtual address used?
+What is the difference between physical and virtual address.
+What are memory segments?
+I have defined 2 global variables, one is initialized and another is uninitialized, in which segments would they be stored?
+What is static and dynamic linking. How does a compiler know if a function belongs to a statically linked source or a dynamically linked source.
+What is a volatile / non-volatile memory.
+What is RAM/ROM.
+How does a process look like in memory, the difference between global variables and static variables?
+Different scopes of variables and to explain when each of them is used and why, when and how do we use the extern keyword.
+What is a void pointer and how do we use it.
+Page fault and steps followed to handle it.
+Different System calls and why do we use them
+fference between Kernel and Operating System.
+Different phases of Compiler and in-detail explanation of each of the phases
+How compiler does intermediate code optimization?
+What are Static and Dynamic Libraries
+Why do we use Cache Memory?
+What is Cache Coherence Protocol and when do we use them.
+Difference between Scheduler and Dispatcher.
+What are the applications of Unions? and problem-related to Unions.
+Let us suppose there are multiple .c files and you want a function from a particular file can only be accessed in that c file only. (Ans- Use static keyword)
+What is Volatile keyword?
+A lot of questions from IPC, Cache, Paging.
+ Sorting, Graphs.
+ 
+ML like PCA, LDA, SVM, 
+fragmentation, paging, cache memory, threads, mutex, counting semaphore, binary semaphore were asked.
+ Explain the role of MMU.
+ Discussion on different layers of OSI model and TCP/IP.
+ how the CPU works.
+ TLB working,
+  What resources does a process use?How does the process   
+  resources information is maintained?https://www.geeksforgeeks.org/operating-system-process-table-process-control-block-pcb/
+  What resources do threads use?
+  
+  What are locks
+  What is mutex ?What is semaphore? Difference between them.
+  Mutex vs Binary semaphore? Are they logically equivalent ?
+  What is demand paging? How to map logical to physical address?
+  Which address is known to CPU?
+  What is static variable ?Show by example?Where does static variable get stored?
+  What is static function?
+  
+     
+    

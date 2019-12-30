@@ -1,0 +1,19 @@
+WAP to find loop in a Linked List, 
+finding merging point, removing loop etc, 
+Bit-Manipulation question: swap MSB and LSB of an integer
+finding a intersection point in two linked list
+Check for balanced parentheses in an expression
+Given 2 strings find number of occurrences of one in another.
+Given a number write a macro to set/unset a bit at a particular position k.
+Given a value, delete all nodes from a linked list having that value.
+How to check if a given number is a power of 2, only using bitwise operators.
+N meetings in a room.
+Reverse a stack without using extra space.
+Construct a tree from pre-order and in-order traversal.
+ Do you know how to construct a balanced tree.
+ Count the number of contiguous bits occurring more than once.
+ set a bit at any position
+clear a bit at any position
+clear the first set bit (MSB) without traversing all the bits
+
+

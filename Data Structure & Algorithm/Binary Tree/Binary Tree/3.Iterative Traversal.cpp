@@ -78,7 +78,8 @@ class Solution{
                       temp=s.top();
                     s.pop();
                    cout << temp->data << " ";
-                   while(!s.empty()&&s.top()->right==temp){ // continue if temp node is the right child of topmost elment of the stack. if yes,means right child of the topmost node has been traversed.
+                   while(!s.empty()&&s.top()->right==temp){ // continue if temp node is the
+                   // right child of topmost elment of the stack. if yes,means right child of the topmost node has been traversed.
                       temp=s.top();
                       cout << temp->data << " ";
                       s.pop();

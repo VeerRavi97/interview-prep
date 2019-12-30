@@ -1,5 +1,5 @@
 1. level order traversal(BFS)
-2.Print binary tree in zig zag order
+2.Print binary tree in reverse order
 
 3. Preoder Traversal/Reursive and iterative/preorder traversal of a binary tree without recursion
 4. Inorder Traversal/Inorder traversal of a binary tree without recursion
@@ -11,7 +11,7 @@
 9.Boundary Traversal of binary tree
 
 
-10.size and hieght of a binary tree
+10.size and height of a binary tree
 11.Print cousins of a given node in Binary Tree/cousins or not
 12.level of a tree
 13..Diameter of a tree

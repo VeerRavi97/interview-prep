@@ -1,6 +1,3 @@
-
-// watch techdose video on youtube
-
 #include<bits/stdc++.h>
 using namespace std;
  
@@ -14,7 +11,7 @@ int solve(int a[] , int n){
            
            int temp =  dp[left][k-1] + dp[k+1][right];
            if(left == 1 && right == n)temp += a[k];
-           temp += a[left-1]*a[right+1];
+           else temp += a[left-1]*a[right+1];
            dp[left][right] = max(dp[left][right],temp);
  
        }
@@ -35,3 +32,13 @@ int main(){
     cout<<solve(a,n)<<endl;
     return 0;
 }
+
+
+/*
+4
+1 2 3 4
+
+20
+
+
+*/

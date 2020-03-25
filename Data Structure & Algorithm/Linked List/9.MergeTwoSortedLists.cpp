@@ -32,6 +32,7 @@ class Solution{
          cout << ptr->val << " ";
          ptr=ptr->next;
      }
+     cout << "\n";
  }
 
 
@@ -39,11 +40,13 @@ class Solution{
 int main(){
 Node *head=NULL;
 Solution obj;
-head=obj.insert(head,1);
-head=obj.insert(head,2);
-head=obj.insert(head,3);
-head=obj.insert(head,4);
-head=obj.insert(head,5);
+int n;
+cin >> n;
+for(int i=0;i<n;i++){
+int in;
+cin >> in;
+head=obj.insert(head,in);
+}
 obj.display(head);
 
 }

@@ -32,6 +32,30 @@ class Solution{
          cout << ptr->val << " ";
          ptr=ptr->next;
      }
+     cout << "\n";
+ }
+
+ Node *rotate(Node *head,int n,int k){
+  if(!head || !head->next) return head;
+  Node *last=head;
+  while(last->next) last=last->next;
+  last->next=head;
+  k=k%n;
+  int d=n-k;
+  int nth=1;
+  Node *current=head;
+  Node *pre=NULL;
+  while(nth<=d && current){
+      nth++;
+      pre=current;
+      current=current->next;
+  }
+  pre->next=NULL;
+  head=current;
+//   cout << k << " " << n << " " << last->val << " " << pre->val << "\n";
+  return head;
+
+
  }
 
 
@@ -39,11 +63,16 @@ class Solution{
 int main(){
 Node *head=NULL;
 Solution obj;
-head=obj.insert(head,1);
-head=obj.insert(head,2);
-head=obj.insert(head,3);
-head=obj.insert(head,4);
-head=obj.insert(head,5);
+int n;
+cin >> n;
+for(int i=0;i<n;i++){
+int in;
+cin >> in;
+head=obj.insert(head,in);
+}
+int k;
+cin >> k;
+head=obj.rotate(head,n,k);
 obj.display(head);
 
 }

@@ -1,23 +1,22 @@
-1.Insetionat at beginning, end and nth position
+Array vs Linked List
+1.Insertion at at beginning, end and nth position
 2.delete node at nth position
 3.delete without head pointer
-
 4.Program for n’th node from the end of a Linked List
 5.Find the middle of a linked list.
-
-
-
 6.Reverse a linked list
 7.Reverse alternate K nodes in a Singly Linked List
-
-
-8.Sort a given LinkedList. // wny merge sort,not quick sort
+8.Rotate a linked list
 9.Merge two sorted linked list
 10.Merge K sorted linked lists
+11.Insert in a sorted list/ Insertion Sort
+13.Merge Sort a given LinkedList. // wny merge sort,not quick sort
+
+12.
 
 
 11.Detect and Remove Loop in a Linked List.find its starting point along with mathematical proofs.
-   Find first node of loop in a linked list.How does this approach work?
+Find first node of loop in a linked list.How does this approach work?
 12.Length of loop
 
 13.Remove duplicates from a sorted linked list
@@ -49,3 +48,4 @@
 
 
 
+ 

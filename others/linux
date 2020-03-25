@@ -1,0 +1,93 @@
+pwd: displays the current working directory
+/ : root directory
+
+cd Downloads/Music: go to specified folder
+cd / : root directory
+cd ..(two dots) : navigate to home directory
+cd 'xx yy' (space separated folders)
+
+echo x: command that writes its arguments to standart output
+x=100
+echo $x: 100
+
+su // used to switch to root user
+su username // used to switch to a different user
+
+**********LS command***********
+ls: list all the contents in current working directory
+ls path : the contents in that path will be displayed
+ls -l : long format
+ls -a: al hidden contents
+ls -la
+ls -hS: sort by File size in human readable format(KB)
+ls -lat : sort by time(latest first)
+ls -laS /home/veerravi > file1.txt
+
+
+********Edit files with vi **********
+1. select the file by typing vi filename
+2. use arrow keys to move the cursor to the file of the 
+    file you want to change
+3. use i command to enter insert mode
+4. change
+5.press ESC key to get back to normal mode
+6. : move the cursor to the bottom of screen
+7. wq: save and quit
+   w:save
+   q:quit
+
+
+
+
+*********CAT**********
+cat filename // to see the contents of the file
+cat -n filename // numbering including space
+cat -b filename // numbering without space
+cat > filename // create a new file and write contents from terminal
+ctrl+d to exit
+
+
+
+
+*********SORT**********
+sort file1.txt // sort the contents and returns in alphabetical order
+sort -r file1.txt // reverse order
+sort -n filename // numerical order
+
+
+*********HEAD/TAIL***********
+head -10 filename
+tail -10 filename
+
+
+***********GREP************
+grep "search" filename // default , case sensitive
+grep -i "search" filename // case innsitive
+grep -n "search" filename
+grep -c "search"filename
+
+
+*********** Permissions************
+ls -lah
+r: read
+w:write
+x:execute/access to metadata
+
+d-directory
+-normal file
+u:user permission
+g:group Permissions
+o: others permissions
+
+chmod --help
+ugoa: user, group,others,all
++-= : add, remove or set permission
+
+chmod g+w sales.data
+chmod u+rw,g-x sales.data
+
+
+
+
+
+

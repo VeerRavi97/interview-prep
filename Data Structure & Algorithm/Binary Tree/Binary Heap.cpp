@@ -19,21 +19,23 @@ if(greatest!=i){
 }
 
 }
-
+// From heap, we can delete only root ie largest element, we can't delete any other element
 int Extract_max(vector<int>&A){
 int ans=A[0];
-swap(A[0],A[heapsize-1]);
+swap(A[0],A[heapsize-1]); // A[0]=A[heapsize-1]
 A.pop_back();
 heapsize--;
 heapify(A,0);
 return ans;
 }
+// direction of adjustments is from root towards leafs in insertion
 
+// Inserting an element takes O(logn)time
 void insert(vector<int>&A,int key){
     cout << "Insering key " << key << "\n";
  A.push_back(key);    
  heapsize++;
-int i=heapsize-1;
+int i=heapsize-1; // last index after inserting
 while(i>0&&key>A[parent(i)]){
 swap(A[i],A[parent(i)]);
 i=parent(i);

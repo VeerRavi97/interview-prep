@@ -1,7 +1,6 @@
 1. level order traversal(BFS)
 2.Print binary tree in reverse order
-
-3. Preoder Traversal/Reursive and iterative/preorder traversal of a binary tree without recursion
+3. Preorder Traversal/Recursive and iterative/preorder traversal of a binary tree without recursion
 4. Inorder Traversal/Inorder traversal of a binary tree without recursion
 5. Postorder Traversal/postorder traversal of a binary tree without recursion
 
@@ -74,6 +73,14 @@ determine if a binary tree is height-balanced?
 
 //Heap
 Heap insertion, deletion and heapify
+Introduction to Binary Heap. Applications
+Insertion, Deletion and ExtractMin in Binary Heap
+Heap Sort
+C++ Implementation (Priority Queue)
+K'th Largest/Smallest element
+Sort an almost sorted array
+Merge K sorted arrays
+Median of running streams
 
 
 // AVL

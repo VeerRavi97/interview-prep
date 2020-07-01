@@ -58,7 +58,7 @@ return pindex;
 
 
 int randomizedquickselect(vi &v1,int start,int end,int k){
-    // cout << "range " << start << " " << end << "\n";
+
 if(k<=end-start+1){
 
 int pindex=partition(v1,start,end);
@@ -74,8 +74,7 @@ return randomizedquickselect(v1,start,pindex-1,k);
 }
 else
 {
-    int remk=k-leftsublength; // elements in left subarray are already less than v[pindex]
-    // cout << "Rem" << remk << "\n";
+    int remk=k-leftsublength;
     return randomizedquickselect(v1,pindex+1,end,remk);
 }
 }

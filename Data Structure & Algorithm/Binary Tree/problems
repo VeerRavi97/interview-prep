@@ -1,8 +1,8 @@
 1. level order traversal(BFS)
 2.Print binary tree in reverse order
-3. Preorder Traversal/Recursive and iterative/preorder traversal of a binary tree without recursion
-4. Inorder Traversal/Inorder traversal of a binary tree without recursion
-5. Postorder Traversal/postorder traversal of a binary tree without recursion
+3. Pre-Order Traversal/Recursive and iterative/preorder traversal of a binary tree without recursion
+4. In-Order Traversal  of a binary tree without recursion
+5. Post-Order Traversal of a binary tree without recursion
 
 6.ZigZag Tree Traversal
 7.Spiral tree traversal/ one stack
@@ -18,7 +18,6 @@
 15.Check whether a given binary tree is perfect or not
 16.Check if two trees are Mirror
 17.Determine if Two Trees are Identical
-
 
 18.Print Left View of a Binary Tree
 19.Vertical Sum in Binary Tree | Set 2 (Space Optimized) / vertical order traversal

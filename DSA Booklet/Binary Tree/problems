@@ -70,15 +70,7 @@ determine if a binary tree is height-balanced?
 
 
 //Heap
-Heap insertion, deletion and heapify
-Introduction to Binary Heap. Applications
-Insertion, Deletion and ExtractMin in Binary Heap
-Heap Sort
-C++ Implementation (Priority Queue)
-K'th Largest/Smallest element
-Sort an almost sorted array
-Merge K sorted arrays
-Median of running streams
+
 
 
 // AVL

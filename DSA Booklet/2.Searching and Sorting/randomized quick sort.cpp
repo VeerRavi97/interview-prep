@@ -42,7 +42,7 @@ int randomizedpartition(vi &v, int start, int end)
 
 void quicksort(vi &v, int start, int end)
 {
-    if (start < end)
+    if (start <= end)
     {
         int pindex = randomizedpartition(v, start, end);
         quicksort(v, start, pindex - 1);

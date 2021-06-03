@@ -48,21 +48,18 @@ public:
   {
     if (!root)
       return;
-    else
+
+    stack<Node *> s;
+    s.push(root);
+    while (!s.empty())
     {
-      stack<Node *> s;
-      s.push(root);
-      Node *current = root;
-      while (!s.empty())
-      {
-        Node *current = s.top();
-        s.pop();
-        cout << current->data << " ";
-        if (current->right)
-          s.push(current->right);
-        if (current->left)
-          s.push(current->left);
-      }
+      Node *current = s.top();
+      s.pop();
+      cout << current->data << " ";
+      if (current->right)
+        s.push(current->right);
+      if (current->left)
+        s.push(current->left);
     }
   }
 

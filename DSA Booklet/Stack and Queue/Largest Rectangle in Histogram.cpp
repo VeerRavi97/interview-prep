@@ -35,8 +35,8 @@ int largestRectangleAreaII(vector<int> &heights)
     for (int i = 0; i < n; i++)
     {
         int curr_area = 0;
-        int leftArea = (psv[i] == -1 ? heights[i] * (i + 1) : heights[i] * (i - psv[i]));
-        int rightArea = (nsv[i] == n ? heights[i] * (n - i - 1) : heights[i] * (nsv[i] - i - 1));
+        int leftArea = (psv[i] == -1 ? heights[i] * (i) : heights[i] * (i - psv[i] - 1));
+        int rightArea = (nsv[i] == n ? heights[i] * (n - i) : heights[i] * (nsv[i] - i));
         curr_area = leftArea + rightArea;
         maxarea = max(maxarea, curr_area);
     }

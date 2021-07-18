@@ -8,31 +8,25 @@ using namespace std;
 typedef vector<int> vi;
 typedef vector<vi> vvi;
 
-int solve(string s)
+int solve(vector<int> &v, int target)
 {
-    int n = s.length();
-    vector<int> firstOccurrences(26, -1);
-    for (int i = 0; i < n; i++)
+    int res = INT_MAX;
+    int sum = 0;
+    int l = 0, r = 0;
+    while (r < v.size())
     {
-        int idx = s[i] - 'a';
-        if (firstOccurrences[idx] == -1) // occurred first time
-            firstOccurrences[idx] = i;
-        else
+        sum += v[r];
+        //  cout <<  sum << endl;
+        while (sum >= target)
         {
-            firstOccurrences[idx] = -2;
+            sum -= v[l];
+            res = min(res, (r - l + 1));
+            l++;
         }
+        r++;
     }
-    int minV = 9999999;
-    bool found = false;
-    for (int i = 0; i < 26; i++)
-    {
-        if (firstOccurrences[i] >= 0)
-        {
-            found = true;
-            minV = min(minV, firstOccurrences[i]);
-        }
-    }
-    return (found ? minV : -1);
+
+    return (res != INT_MAX) ? res : 0;
 }
 
 void file_io()
@@ -53,9 +47,13 @@ int main()
     cin >> tc;
     while (tc--)
     {
-        string s;
-        cin >> s;
-        auto ans = solve(s);
+        int n;
+        cin >> n;
+        vi v(n, 0);
+        for (int i = 0; i < n; i++)
+            cin >> v[i];
+        int target = 0;
+        auto ans = solve(v, target);
         cout << ans << endl;
     }
 

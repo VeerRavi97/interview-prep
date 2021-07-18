@@ -24,10 +24,8 @@ int solve(vi &v)
   while (start <= end)
   {
     int mid = (start + end) / 2;
-    // deb(start); deb(end);deb(mid);
     int nxt = (mid == n - 1) ? INT32_MIN : v[mid + 1];
     int prv = (mid == 0) ? INT32_MIN : v[mid - 1];
-    // cout << prv << " " << v[mid] << " " << nxt << "\n";
     if (v[mid] >= prv && v[mid] >= nxt)
       return mid;
     else if (prv > v[mid])

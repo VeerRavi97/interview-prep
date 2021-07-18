@@ -14,57 +14,48 @@ const ll MOD = 1e9 + 7;
 const ll INF = 0x3f3f3f3f;
 const double EPS = 1e-9;
 const ll MAX_N = 1e5 + 5;
-
+void file_io()
+{
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+  cout.tie(0);
+#ifndef ONLINE_JUDGE
+  freopen("input.txt", "r", stdin);
+  freopen("output.txt", "w", stdout);
+#endif
+}
 class Solution
 {
 public:
-  double solve(vi &a, vi &b)
+  double solve(vi &x, vi &y)
   {
-    if (b.size() < a.size())
-      return solve(b, a);
+    if (x.size() > y.size())
+      return solve(y, x);
     double med = 0.0;
-    int m = a.size();
-    int n = b.size();
-    int len_leftpart = (m + n + 1) / 2;
-    int start = 0; // a'minimum contribution to left part of median
-    int end = m;   // a's maximum contribution to left part of median
+    int n = x.size();
+    int m = y.size();
+    int start = 0, end = n;
     while (start <= end)
     {
-      int mid = (start + end) / 2;
-      int a_contribution = mid;
-      int b_contribution = len_leftpart - a_contribution;
-      cout << start << " " << end << " " << mid << " " << a_contribution << " " << b_contribution << "\n";
-      int x, x1, y, y1;
-      if (a_contribution == 0)
-        x = INT32_MIN;
-      else
-        x = a[a_contribution - 1];
-      if (a_contribution == m)
-        x1 = INT32_MAX;
-      else
-        x1 = a[a_contribution];
-      if (b_contribution == 0)
-        y = INT32_MIN;
-      else
-        y = b[b_contribution - 1];
-      if (b_contribution == n)
-        y1 = INT32_MAX;
-      else
-        y1 = b[b_contribution];
-      cout << x << " " << x1 << " " << y << " " << y1 << "\n";
-      if (x <= y1 && y <= x1)
+      int midX = (start + end) >> 1;
+      int midY = ((n + m + 1) >> 1) - midX;
+      int maxLeftX = (midX == 0) ? INT_MIN : x[midX - 1];
+      int minRightX = (midX == n) ? INT_MAX : x[midX];
+      int maxLeftY = (midY == 0) ? INT_MIN : y[midY - 1];
+      int minRightY = (midY == m) ? INT_MAX : y[midY];
+      if (maxLeftX <= minRightY && maxLeftY <= minRightX)
       {
-        if ((m + n) & 1)
-          return (double)max(x, y);
+        if ((n + m) & 1)
+          return (double)max(maxLeftX, maxLeftY);
         else
         {
-          return (double)(max(x, y) + min(x1, y1)) / 2;
+          return (double)(max(maxLeftX, maxLeftY) + min(minRightX, minRightY)) / 2;
         }
       }
-      else if (y > x1)
-        start = a_contribution + 1;
-      else if (x > y1)
-        end = a_contribution - 1;
+      else if (maxLeftX > minRightY)
+        end = midX - 1;
+      else
+        start = midX + 1;
     }
 
     return -1.0;
@@ -73,6 +64,7 @@ public:
 
 int main()
 {
+  file_io();
   int tc;
   cin >> tc;
   while (tc--)

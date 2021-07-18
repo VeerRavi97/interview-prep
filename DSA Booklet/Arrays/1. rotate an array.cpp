@@ -16,8 +16,8 @@ const double EPS = 1e-9;
 const ll MAX_N = 1e5 + 5;
 
 void anticlock_rotate(vi &v, int d)
-{ // right roatation
-
+{
+    // right rotation
     int n = v.size();
     reverse(v.begin(), v.begin() + (n - d));
     reverse(v.begin() + (n - d), v.end());

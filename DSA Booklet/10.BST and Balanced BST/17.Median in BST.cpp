@@ -102,11 +102,6 @@ void file_io()
 #endif
 }
 
-
-
-
-
-
 int main()
 {
     clock_t start = clock();

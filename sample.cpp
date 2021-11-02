@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 int main()
 {
@@ -11,3 +11,5 @@ int main()
         cout << "Big endian " << endl;
     return 0;
 }
+
+

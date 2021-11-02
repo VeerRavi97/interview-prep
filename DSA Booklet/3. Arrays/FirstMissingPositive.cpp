@@ -32,7 +32,7 @@ int firstMissingPositive(vector<int> &nums)
             idx = nums[i] - 1;
         }
     }
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n; i++) 
     {
         if (i + 1 != nums[i])
             return i + 1;

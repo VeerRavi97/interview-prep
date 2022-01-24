@@ -41,9 +41,6 @@ string longestPalindrome(string str)
             max_length = curr_length;
             max_str = curr_str;
         }
-
-        if ((len & 1))
-            continue;
         curr_str = expand(str, i, i + 1);
         curr_length = curr_str.length();
 

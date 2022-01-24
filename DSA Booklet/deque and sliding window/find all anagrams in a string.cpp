@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 #define ll long long
 #define MOD 1e9 + 7
@@ -7,7 +8,7 @@ using namespace std;
 #define all(c) c.begin(), c.end()
 typedef vector<int> vi;
 typedef vector<vi> vvi;
-#define MAX_CHAR 26
+#define MAX_CHAR 256
 
 bool comp(int A[], int B[])
 {
@@ -22,15 +23,15 @@ bool comp(int A[], int B[])
 vector<int> solve(string text, string patt)
 {
     vector<int> res;
-    int text_freq[256] = {0};
-    int patt_freq[256] = {0};
+    int text_freq[MAX_CHAR] = {0};
+    int patt_freq[MAX_CHAR] = {0};
     for (auto ch : patt)
-        patt[ch - 'a']++;
+        patt_freq[ch - 'a']++;
     int l = 0, r = 0;
-    for (r = 0; r < patt.length(); r++) // applying the window
+    int ws = min(text.length(), patt.length());
+    for (r = 0; r < ws; r++) // applying the window
     {
         text_freq[text[r] - 'a']++;
-        patt_freq[patt[r] - 'a']++;
     }
     if (comp(text_freq, patt_freq))
         res.push_back(0);

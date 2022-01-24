@@ -1,45 +1,33 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
+#include <stack>
 #define ll long long
-#define MOD 1e9 + 7
+#define MOD 10000000007
 #define all(c) c.begin(), c.end()
 #define endl '\n'
 using namespace std;
 typedef vector<int> vi;
 typedef vector<vi> vvi;
-int firstMissingPositiveII(vector<int> &nums)
-{
-    sort(all(nums));
-    int exp = 1;
-    for (auto x : nums)
-    {
-        if (x == exp)
-            exp++;
-    }
-    return exp;
-}
 
-int firstMissingPositive(vector<int> &nums)
+vector<int> dailyTemperatures(vector<int> &temperatures)
 {
-    int n = nums.size();
-    for (int i = 0; i < nums.size(); i++)
-    {
-        if (nums[i] < 0)
-            nums[i] = 0;
-        int idx = nums[i] - 1;
-        while (0 <= idx && idx < n && nums[idx] != nums[i])
-        {
-            swap(nums[i], nums[idx]);
-            idx = nums[i] - 1;
-        }
-    }
+    int n = temperatures.size();
+    vector<int> res(n, 0);
+    stack<int> s;
     for (int i = 0; i < n; i++)
     {
-        if (i + 1 != nums[i])
-            return i + 1;
+        while (!s.empty() && temperatures[s.top()] < temperatures[i])
+        {
+            int tp = s.top();
+            s.pop();
+            res[tp] = i - tp;
+        }
+
+        s.push(i);
     }
-    return n + 1;
+
+    return res;
 }
 
 void file_io()
@@ -65,8 +53,10 @@ int main()
         vector<int> v(n, 0);
         for (int i = 0; i < n; i++)
             cin >> v[i];
-        auto ans = firstMissingPositive(v);
-        cout << ans << endl;
+        auto ans = dailyTemperatures(v);
+        for (auto x : ans)
+            cout << x << " ";
+        cout << endl;
     }
     clock_t end = clock();
 #ifndef ONLINE_JUDGE

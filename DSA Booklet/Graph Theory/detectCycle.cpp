@@ -1,8 +1,9 @@
 // { Driver Code Starts
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 
-class Solution
+class Graph
 {
 public:
     bool visited[10111] = {0};
@@ -63,8 +64,8 @@ int main()
             adj[u].push_back(v);
         }
 
-        Solution obj;
-        cout << obj.isCyclic(V, adj) << "\n";
+        Graph graph;
+        cout << graph.isCyclic(V, adj) << "\n";
     }
 
     return 0;

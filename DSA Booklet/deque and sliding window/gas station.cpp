@@ -1,13 +1,14 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <stack>
 #define ll long long
-#define MOD 1e9 + 7
-#define INF 1e18
-#define endl '\n'
+#define MOD 10000000007
 #define all(c) c.begin(), c.end()
+#define endl '\n'
+using namespace std;
 typedef vector<int> vi;
 typedef vector<vi> vvi;
-
 int canCompleteCircuitII(vector<int> &gas, vector<int> &cost)
 {
     deque<int> dq;
@@ -59,19 +60,20 @@ int canCompleteCircuitOptimal(vector<int> &gas, vector<int> &cost)
 {
     int n = gas.size();
     int start = 0;
-    int curr_gas = 0;
-    int prev_gas = 0;
+    int surplus = 0;
+    int deficit = 0;
+    bool isSelected = false;
     for (int i = 0; i < n; i++)
     {
-        curr_gas += gas[i] - cost[i];
-        if (curr_gas < 0)
+        surplus += gas[i] - cost[i];
+        if (surplus < 0)
         {
             start = i + 1;
-            prev_gas += curr_gas;
-            curr_gas = 0;
+            deficit -= surplus;
+            surplus = 0;
         }
     }
-    return ((curr_gas + prev_gas >= 0) ? start : -1);
+    return ((surplus - deficit >= 0) ? start : -1);
 }
 void file_io()
 {

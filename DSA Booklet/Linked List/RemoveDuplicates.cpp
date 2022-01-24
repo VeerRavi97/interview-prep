@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <set>
 using namespace std;
 class Node
 {
@@ -98,15 +99,14 @@ public:
             if (pre->next == curr)
             {
                 pre = curr;
-                curr = curr->next;
             }
             else
             {
                 pre->next = curr->next;
-                curr = curr->next;
             }
+            curr = curr->next;
         }
-        pre->next = nullptr;
+        // pre->next = nullptr;
         return dummy->next;
     }
 

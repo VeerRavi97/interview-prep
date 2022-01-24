@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 #include <vector>
 using namespace std;
 #define ll long long
@@ -7,16 +8,17 @@ using namespace std;
 #define endl '\n'
 #define all(c) c.begin(), c.end()
 typedef vector<int> vi;
+typedef vector<vi> vvi;
 
 class Node
 {
 public:
-    int data;
+    int val;
     Node *left;
     Node *right;
-    Node(int data)
+    Node(int val)
     {
-        this->data = data;
+        this->val = val;
         this->left = this->right = nullptr;
     }
 };
@@ -34,61 +36,35 @@ Node *BuildTree(vector<int> &v, int &index)
     return newNode;
 }
 
+int getHeight(Node *root, vvi &v)
+{
+    if (!root)
+        return -1;
+    int lh = getHeight(root->left, v);
+    int rh = getHeight(root->right, v);
+    int height = 1 + max(lh, rh);
+    if (v.size() == height)
+        v.push_back({});
+    v[height].push_back(root->val);
+    return height;
+}
+
+vector<vector<int>> findLeaves(Node *root)
+{
+    vector<vector<int>> res;
+    getHeight(root, res);
+    return res;
+}
+
 void display(Node *root)
 {
     if (!root)
     {
         return;
     }
-    cout << root->data << " ";
+    cout << root->val << endl;
     display(root->left);
     display(root->right);
-}
-
-void display(Node *root, vector<int> &v)
-{
-    if (!root)
-    {
-        v.push_back(-1);
-        return;
-    }
-    cout << root->data << " ";
-    v.push_back(root->data);
-    display(root->left, v);
-    display(root->right, v);
-}
-
-int maxLevelSum(Node *root)
-{
-    if (!root)
-        return 0;
-    queue<Node *> q;
-    q.push(root);
-    int maxSum = INT_MIN;
-    int maxLevel = 0;
-    int curr_level = 0;
-    while (!q.empty())
-    {
-        int curr_sum = 0;
-        int count = q.size();
-        curr_level++;
-        for (int i = 0; i < count; i++)
-        {
-            Node *curr = q.front();
-            q.pop();
-            curr_sum += curr->data;
-            if (curr->left)
-                q.push(curr->left);
-            if (curr->right)
-                q.push(curr->right);
-        }
-        if (curr_sum > maxSum)
-        {
-            maxLevel = curr_level;
-            maxSum = curr_sum;
-        }
-    }
-    return maxLevel;
 }
 
 void file_io()
@@ -117,10 +93,14 @@ int main()
             cin >> v[i];
         int start_idx = 0;
         root = BuildTree(v, start_idx);
-        vi sv;
-        display(root, sv);
+        auto ans = findLeaves(root);
+        for (auto &x : ans)
+        {
+            for (auto &y : x)
+                cout << y << " ";
+            cout << endl;
+        }
         cout << endl;
-        cout << maxLevelSum(root) << endl;
     }
 
     clock_t end = clock();
@@ -129,5 +109,7 @@ int main()
     cout << "\n\nExecuted In: " << cpu_time_used << "s" << endl;
 #endif
 }
-// 15
-// 1 2 4 8 -1 -1 9 -1 -1 5 10 -1 -1 11 -1 -1 3 6 12 -1 -1 13 -1 -1 7 14 -1 -1 15 -1 -1
+/*
+15
+1 2 4 8 -1 -1 9 -1 -1 5 10 -1 -1 11 -1 -1 3 6 12 -1 -1 13 -1 -1 7 14 -1 -1 15 -1 -1
+*/

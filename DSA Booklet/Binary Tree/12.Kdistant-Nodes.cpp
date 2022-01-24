@@ -84,7 +84,7 @@ int recur(Node *root, Node *target, int k, vi &kv)
     if (root == target)
     {
         printAtKthLevel(root, k, kv);
-        return 0;
+        return 0; // distance 0
     }
     int ld = recur(root->left, target, k, kv);
     if (ld != -1)

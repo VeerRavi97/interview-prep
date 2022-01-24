@@ -40,7 +40,6 @@ string reverseWordsII(string s)
 
 string reverseWords(string s)
 {
-    stack<string> st;
     string temp = "";
     string res = "";
     for (int i = 0; i < s.length(); i++)

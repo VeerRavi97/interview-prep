@@ -36,10 +36,28 @@ vector<vector<string>> groupAnagrams(vector<string> &strs)
         mp[id].push_back(str);
     }
     vector<vector<string>> res;
+    
     for (auto v : mp)
     {
         res.push_back(v.second);
     }
+    return res;
+}
+
+vector<vector<string>> groupAnagrams(vector<string> &strs)
+{
+    vector<vector<string>> res;
+    if (strs.size() == 0)
+        return res;
+    unordered_map<string, vector<string>> mp;
+    for (string str : strs)
+    {
+        string key = str;
+        sort(key.begin(), key.end());
+        mp[key].push_back(str);
+    }
+    for (auto x : mp)
+        res.push_back(x.second);
     return res;
 }
 

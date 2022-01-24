@@ -1,6 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
+#include <deque>
 using namespace std;
 #define ll long long
 #define MOD 1e9 + 7
@@ -12,23 +13,30 @@ typedef vector<vi> vvi;
 
 int solve(vector<int> &v, int target)
 {
+    int n = v.size();
     int res = INT_MAX;
-    int sum = 0;
-    int l = 0, r = 0;
-    while (r < v.size())
+    deque<int> dq;
+    vector<int> prefix(n + 1, 0);
+    prefix[0] = 0;
+    for (int i = 1; i <= n; i++)
     {
-        sum += v[r];
-        //  cout <<  sum << endl;
-        while (sum >= target)
+        int prev_idx = i - 1;
+        prefix[i] = prefix[prev_idx] + v[prev_idx];
+    }
+    for (int i = 0; i <= n; i++)
+    {
+        while (!dq.empty() && (prefix[i] - target) >= prefix[dq.front()])
         {
-            sum -= v[l];
-            res = min(res, (r - l + 1));
-            l++;
+            res = min(res, i - dq.front());
+            dq.pop_front();
         }
-        r++;
+        while (!dq.empty() && prefix[i] <= prefix[dq.back()])
+            dq.pop_back();
+
+        dq.push_back(i);
     }
 
-    return (res != INT_MAX) ? res : 0;
+    return (res != INT_MAX) ? res : -1;
 }
 
 void file_io()
@@ -55,6 +63,7 @@ int main()
         for (int i = 0; i < n; i++)
             cin >> v[i];
         int target = 0;
+        cin >> target;
         auto ans = solve(v, target);
         cout << ans << endl;
     }

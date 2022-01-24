@@ -1,6 +1,8 @@
 
 
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <sstream>
 using namespace std;
 #define ll long long
 #define MOD 1e9 + 7
@@ -86,14 +88,14 @@ int MaxvaluesBU(vector<int> &values, vector<int> &weights, int rem, int n)
 
     for (int i = 0; i <= n; i++)
     {
-        int c = weights[i - 1]; // current_price
+
         for (int j = 0; j <= rem; j++)
         {
             if (i == 0 || j == 0)
                 dp[i][j] = 0;
-            else if (j >= c)
+            else if (j >= weights[i - 1]) //  int c = weights[i - 1]; // current_price
             {
-                dp[i][j] = max(dp[i - 1][j], values[i - 1] + dp[i - 1][j - c]);
+                dp[i][j] = max(dp[i - 1][j], values[i - 1] + dp[i - 1][j - weights[i - 1]]);
             }
             else
             {
@@ -113,15 +115,14 @@ int MaxvaluesBUSpaceOptimized(vector<int> &values, vector<int> &weights, int rem
     for (int i = 0; i <= n; i++)
     {
         bi = i & 1;
-        int c = weights[i - 1]; // current_price
-                                // int p = values[i - 1];
+        // int p = values[i - 1];
         for (int j = 0; j <= rem; j++)
         {
             if (i == 0 || j == 0)
                 dp[bi][j] = 0;
-            else if (j >= c)
+            else if (j >= weights[i - 1]) // int c = weights[i - 1]
             {
-                dp[bi][j] = max(dp[1 - bi][j], values[i - 1] + dp[1 - bi][j - c]);
+                dp[bi][j] = max(dp[1 - bi][j], values[i - 1] + dp[1 - bi][j - weights[i - 1]]);
             }
             else
             {
@@ -132,19 +133,19 @@ int MaxvaluesBUSpaceOptimized(vector<int> &values, vector<int> &weights, int rem
     return dp[bi][rem];
 }
 
-int MaxvaluesOptimized(vector<int> &values, vector<int> &weights, int rem, int n)
+int MaxvaluesOptimized(vector<int> &values, vector<int> &weights, int W, int n)
 {
-    int dp[rem + 1];
+    int dp[W + 1];
     memset(dp, 0, sizeof(dp));
     for (int i = 0; i < n; i++)
     {
         int c = weights[i];
-        for (int x = rem; x >= c; x--)
+        for (int x = W; x >= c; x--)
         {
             dp[x] = max(dp[x], values[i] + dp[x - c]);
         }
     }
-    return dp[rem];
+    return dp[W];
 }
 
 int main()

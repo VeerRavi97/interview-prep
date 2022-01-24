@@ -1,6 +1,8 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
+#include <set>
+#include <unordered_map>
 #define ll long long
 #define MOD 1e9 + 7
 #define all(c) c.begin(), c.end()
@@ -8,40 +10,37 @@
 using namespace std;
 typedef vector<int> vi;
 typedef vector<vi> vvi;
-int firstMissingPositiveII(vector<int> &nums)
+vector<int> findOriginalArray(vector<int> &changed)
 {
-    sort(all(nums));
-    int exp = 1;
-    for (auto x : nums)
-    {
-        if (x == exp)
-            exp++;
-    }
-    return exp;
-}
+    int n = changed.size();
+    vector<int> res;
+    if (n & 1)
+        return res;
+    sort(all(changed));
+    unordered_map<int, int> mp;
+    for (int &x : changed)
+        mp[x]++;
 
-int firstMissingPositive(vector<int> &nums)
-{
-    int n = nums.size();
-    for (int i = 0; i < nums.size(); i++)
+    for (int &ele : changed)
     {
-        if (nums[i] < 0)
-            nums[i] = 0;
-        int idx = nums[i] - 1;
-        while (0 <= idx && idx < n && nums[idx] != nums[i])
+        int doubled = 2 * ele;
+        if (ele == 0 && mp[ele] >= 2)
         {
-            swap(nums[i], nums[idx]);
-            idx = nums[i] - 1;
+            mp[ele] -= 2;
+            res.push_back(ele);
+        }
+        else if (ele != 0 && mp[ele] > 0 && mp[doubled] > 0)
+        {
+            mp[ele]--;
+            mp[doubled]--;
+            res.push_back(ele);
         }
     }
-    for (int i = 0; i < n; i++)
-    {
-        if (i + 1 != nums[i])
-            return i + 1;
-    }
-    return n + 1;
+    if (res.size() == n / 2)
+        return res;
+    res.clear();
+    return res;
 }
-
 void file_io()
 {
     ios::sync_with_stdio(0);
@@ -65,8 +64,10 @@ int main()
         vector<int> v(n, 0);
         for (int i = 0; i < n; i++)
             cin >> v[i];
-        auto ans = firstMissingPositive(v);
-        cout << ans << endl;
+        auto ans = findOriginalArray(v);
+        for (auto &x : ans)
+            cout << x << " ";
+        cout << endl;
     }
     clock_t end = clock();
 #ifndef ONLINE_JUDGE

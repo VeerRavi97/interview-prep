@@ -1,4 +1,7 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include<stack>
+#include<vector>
+#include<algorithm>
 using namespace std;
 #define ll long long
 #define MOD 1e9 + 7
@@ -8,7 +11,7 @@ using namespace std;
 typedef vector<int> vi;
 void file_io()
 {
-    ios::sync_with_stdio(0);
+    ios::sync_with_stdio(0);                     
     cin.tie(0);
     cout.tie(0);
 #ifndef ONLINE_JUDGE

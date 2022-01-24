@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 #define ll long long
 #define MOD 1e9 + 7
@@ -8,6 +9,53 @@ using namespace std;
 typedef vector<int> vi;
 typedef vector<vi> vvi;
 #define MAX_N 1011
+
+string expand(string str, int low, int high)
+{
+    while (low >= 0 && high < str.length() && (str[low] == str[high]))
+    {
+        low--, high++; // Expand in both directions
+    }
+    return str.substr(low + 1, high - low - 1);
+}
+string longestPalindrome(string str)
+{
+    int len = str.length();
+    if (len == 0)
+    {
+        return str;
+    }
+
+    string max_str = "", curr_str;
+
+    int max_length = 0, curr_length;
+
+    for (int i = 0; i < str.length(); i++)
+    {
+
+        curr_str = expand(str, i, i);
+        curr_length = curr_str.length();
+
+        if (curr_length > max_length)
+        {
+            max_length = curr_length;
+            max_str = curr_str;
+        }
+
+        if ((len & 1))
+            continue;
+        curr_str = expand(str, i, i + 1);
+        curr_length = curr_str.length();
+
+        if (curr_length > max_length)
+        {
+            max_length = curr_length;
+            max_str = curr_str;
+        }
+    }
+
+    return max_str;
+}
 
 int LPS_BU(string s, vvi &dp, int &sIdx)
 {
@@ -72,11 +120,11 @@ int main()
     while (tc--)
     {
 
-        string s1, s2;
-        cin >> s1 >> s2;
+        string s;
+        cin >> s;
         string res = "";
-        auto ans = longestPalindromeSubstring(s1, res);
-        cout << ans << " " << res << endl;
+        auto ans = longestPalindrome(s);
+        cout << ans << endl;
     }
 
     clock_t end = clock();

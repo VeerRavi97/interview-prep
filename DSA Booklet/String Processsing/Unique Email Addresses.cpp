@@ -1,6 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
+#include <set>
 #define ll long long
 #define MOD 1e9 + 7
 #define all(c) c.begin(), c.end()
@@ -8,38 +9,34 @@
 using namespace std;
 typedef vector<int> vi;
 typedef vector<vi> vvi;
-int firstMissingPositiveII(vector<int> &nums)
+
+string formatter(string local_name)
 {
-    sort(all(nums));
-    int exp = 1;
-    for (auto x : nums)
+    string res = "";
+    for (auto &ch : local_name)
     {
-        if (x == exp)
-            exp++;
+        if (ch == '.')
+            continue;
+        if (ch == '+')
+            return res;
+        res += ch;
     }
-    return exp;
+    return res;
 }
 
-int firstMissingPositive(vector<int> &nums)
+int solve(vector<string> &emails)
 {
-    int n = nums.size();
-    for (int i = 0; i < nums.size(); i++)
+    set<string> uniqueEmails;
+    for (auto &email : emails)
     {
-        if (nums[i] < 0)
-            nums[i] = 0;
-        int idx = nums[i] - 1;
-        while (0 <= idx && idx < n && nums[idx] != nums[i])
-        {
-            swap(nums[i], nums[idx]);
-            idx = nums[i] - 1;
-        }
+        int end = email.find("@");
+        string local = email.substr(0, end);
+        string domain = email.substr(end);
+        local = formatter(local);
+        string new_email = local + domain;
+        uniqueEmails.insert(new_email);
     }
-    for (int i = 0; i < n; i++)
-    {
-        if (i + 1 != nums[i])
-            return i + 1;
-    }
-    return n + 1;
+    return uniqueEmails.size();
 }
 
 void file_io()
@@ -62,10 +59,10 @@ int main()
     {
         int n;
         cin >> n;
-        vector<int> v(n, 0);
+        vector<string> v(n);
         for (int i = 0; i < n; i++)
             cin >> v[i];
-        auto ans = firstMissingPositive(v);
+        auto ans = solve(v);
         cout << ans << endl;
     }
     clock_t end = clock();

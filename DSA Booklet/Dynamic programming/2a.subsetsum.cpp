@@ -1,5 +1,6 @@
-#include <bits/stdc++.h>
+#include <iostream>
 #include <sstream>
+#include <vector>
 using namespace std;
 #define ll long long
 #define MOD 1e9 + 7
@@ -94,12 +95,35 @@ int isSubsetSum(vector<int> &v, int n, int target)
             if (j < curr)
                 dp[i][j] = dp[i - 1][j];
             else if (j - curr >= 0)
-                dp[i][j] = dp[i - 1][j] + dp[i - 1][j - curr];
+                dp[i][j] = dp[i - 1][j] + dp[i - 1][j - curr]; // + , count
         }
     }
-    string path = " ";
-    dfs(dp, v, n, target, path);
+  //  string path = " ";
+  //  dfs(dp, v, n, target, path);
     return dp[n][target];
+}
+
+int countSubsets(vector<int> &nums, int target)
+{
+    vector<int> possible(target + 1, 0);
+    possible[0] = 1;
+    for (int i = 0; i < nums.size(); i++)
+    {
+        int curr = nums[i];
+        for (int j = target; j >= curr; j--)
+        {
+            possible[j] += possible[j - curr];
+        }
+    }
+    return possible[target];
+}
+
+int findTargetSumWays(vector<int> &nums, int target)
+{
+    int sum = 0;
+    for (int num : nums)
+        sum += num;
+    return isSubsetSum(nums, nums.size(), (target + sum) >> 1);
 }
 
 int main()
@@ -107,7 +131,7 @@ int main()
     clock_t start = clock();
     file_io();
     int tc;
-    tc = 3;
+    cin >> tc;
     while (tc--)
     {
         int n, target;
@@ -122,7 +146,7 @@ int main()
             range += in;
         }
         //subsetSums(v, n, range);
-        int cnt = isSubsetSum(v, n, target);
+        int cnt = findTargetSumWays(v, target);
         cout << cnt << endl;
     }
 

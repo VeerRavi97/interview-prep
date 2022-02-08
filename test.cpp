@@ -8,9 +8,24 @@
 using namespace std;
 typedef vector<int> vi;
 typedef vector<vi> vvi;
-int solve(vector<int> &nums)
+class Solution
 {
-}
+    vector<int> res;
+
+public:
+    Solution(int n)
+    {
+        res.reserve(n);
+    }
+    ~Solution()
+    {
+        res.clear();
+    }
+    int getVector(int idx)
+    {
+        return res[idx];
+    }
+};
 
 void file_io()
 {
@@ -27,16 +42,12 @@ int main()
     clock_t start = clock();
     file_io();
     int tc;
-    cin >> tc;
+    tc = 1;
     while (tc--)
     {
-        int n;
-        cin >> n;
-        vector<int> v(n, 0);
-        for (int i = 0; i < n; i++)
-            cin >> v[i];
-        auto ans = solve(v);
-        cout << ans << endl;
+        Solution solution(3);
+
+        cout << solution.getVector(2) << endl;
     }
     clock_t end = clock();
 #ifndef ONLINE_JUDGE

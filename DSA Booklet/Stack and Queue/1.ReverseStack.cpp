@@ -1,7 +1,7 @@
 #include <iostream>
-#include<stack>
-#include<vector>
-#include<algorithm>
+#include <stack>
+#include <vector>
+#include <algorithm>
 using namespace std;
 #define ll long long
 #define MOD 1e9 + 7
@@ -11,7 +11,7 @@ using namespace std;
 typedef vector<int> vi;
 void file_io()
 {
-    ios::sync_with_stdio(0);                     
+    ios::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
 #ifndef ONLINE_JUDGE
@@ -90,6 +90,7 @@ int main()
 {
     clock_t start = clock();
     file_io();
+    cout << "started" << start << endl;
     int tc;
     cin >> tc;
     while (tc--)
@@ -109,6 +110,7 @@ int main()
         display(s1);
     }
     clock_t end = clock();
+    cout << "ENded" << end << endl;
 #ifndef ONLINE_JUDGE
     double cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
     cout << "\n\nExecuted In: " << cpu_time_used << "s" << endl;

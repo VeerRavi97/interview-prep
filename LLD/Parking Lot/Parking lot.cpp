@@ -1,12 +1,4 @@
 
-/*
-
-https://leetcode.com/discuss/interview-question/1422797/Swiggy-or-Machine-Coding-Round-or-SDE-4-or-Parking-Lot-System
-
-https://leetcode.com/discuss/interview-question/124739/Parking-Lot-Design-Using-OO-Design
-
-
-*/
 
 #include <iostream>
 #include <vector>
@@ -194,9 +186,7 @@ public:
 
 class ParkingSlot
 {
-
     int slotId;
-    bool isFree;
     double costPerHour;
     Vehicle vehicle;
     ParkingSlotType parkingSlotType;

@@ -86,11 +86,10 @@ int main()
     // vector of strings to represent a dictionary
     vector<string> words =
         {
-            "this", "th", "is", "famous", "word", "break", "b", "r",
-            "e", "a", "k", "br", "bre", "brea", "ak", "prob", "lem"};
+            "cats", "dog", "sand", "and", "cat"};
 
     // given string
-    string s = "wordbreakproblem";
+    string s = "catsanddog";
 
     // create a Trie to store the dictionary
     Node *trie = new Node();

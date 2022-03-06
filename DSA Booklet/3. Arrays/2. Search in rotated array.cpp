@@ -83,8 +83,8 @@ int search(vi &v, int num)
 // r < n
 // Optimal way to find r
 
-//30 40 50 60 70 80 90 10 20
-// 0  1  2 3  4  5  6  7   8
+// 30 40 50 60 70 80 90 10 20
+//  0  1  2 3  4  5  6  7   8
 int rotationCount(int arr[], int n)
 {
   if (arr[0] < arr[n - 1])

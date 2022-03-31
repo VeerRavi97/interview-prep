@@ -99,6 +99,7 @@ public:
             if (pre->next == curr)
             {
                 pre = curr;
+                //  pre = pre->next;
             }
             else
             {

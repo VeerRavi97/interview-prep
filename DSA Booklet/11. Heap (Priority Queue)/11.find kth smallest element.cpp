@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <queue>
 using namespace std;
 typedef vector<int> vi;
 int kthsmallest_minheap(vi &v, int k)
@@ -37,27 +39,22 @@ int kthsmallest_maxheap(vi &v, int k)
     ans = pq.top();
     return ans;
 }
-int partition(vi &v1, int start, int end)
+int partition(vi &v, int start, int end)
 {
-    int pindex = start - 1;
-    int i = 0;
-    int pivot = v1[end];
-    for (i = start; i < end; i++)
+    int pIdx = start;
+    int pivot = v[end];
+    for (int i = start; i <= end; i++)
     {
-        if (v1[i] <= pivot)
-        {
-            swap(v1[++pindex], v1[i]);
-        }
+        if (v[i] < pivot)
+            swap(v[pIdx++], v[i]);
     }
-    swap(v1[++pindex], v1[end]);
-    return pindex;
+    swap(v[++pIdx], v[end]);
+    return pIdx;
 }
 int randompartition(vi &v1, int start, int end)
 {
     int n = end - start;
-    srand(time(NULL));
     int random = start + rand() % n;
-    // cout << "random " << random << "\n";
     swap(v1[random], v1[end]);
     int pindex = partition(v1, start, end);
     return pindex;
@@ -92,6 +89,7 @@ int randomizedquickselect(vi &v1, int start, int end, int k)
 
 int main()
 {
+    srand(time(NULL));
     vi v;
     int n;
     cin >> n;

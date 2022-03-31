@@ -1,5 +1,6 @@
 #include <iostream>
 #include <unordered_set>
+#include <vector>
 using namespace std;
 typedef long long ll;
 typedef vector<ll> vi;

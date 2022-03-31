@@ -51,7 +51,7 @@ public:
             int len = wordTobeAppended.length();
             if (isValid(wordTobeAppended))
             {
-                if (dotsleft == 3)
+                if (dotsleft == 3)  //first string
                 {
                     runningStr += wordTobeAppended;
                     helper(runningStr, dotsleft - 1, j + 1);

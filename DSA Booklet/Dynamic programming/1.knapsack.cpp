@@ -29,12 +29,14 @@ bool isValid(int r, int c)
     return (r >= 0 && c >= 0);
 }
 
-void dfs(vector<int> &values, vector<int> &weights, int r, int c, int n, string path)
+void dfs(vector<int> &values, vector<int> &weights, int r, int c, int n, vector<int> &path)
 {
     // base
     if (r == 0 || c == 0)
     {
-        cout << path << endl;
+        for (auto &x : path)
+            cout << x << " ";
+        cout << endl;
         return;
     }
 
@@ -44,17 +46,18 @@ void dfs(vector<int> &values, vector<int> &weights, int r, int c, int n, string 
     }
     else
     {
-        stringstream ss;
-        ss << values[r - 1];
-        string temp = "";
-        ss >> temp;
+        //  stringstream ss;
+        //   ss << values[r - 1];
+        // string temp = "";
+        //   ss >> temp;
         // cout << temp << endl;
         int rnbr = r - 1;
         int cnbr = c - weights[r - 1];
         if (isValid(rnbr, cnbr))
         {
             // string temp = std::to_string(r);
-            dfs(values, weights, rnbr, cnbr, n, path + temp);
+            path.push_back(values[r - 1]);
+            dfs(values, weights, rnbr, cnbr, n, path);
         }
     }
 }
@@ -103,7 +106,7 @@ int MaxvaluesBU(vector<int> &values, vector<int> &weights, int rem, int n)
             }
         }
     }
-    string path = "";
+    vector<int> path;
     dfs(values, weights, n, rem, n, path);
     return dp[n][rem];
 }

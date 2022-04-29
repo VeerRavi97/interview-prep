@@ -94,61 +94,6 @@ public:
     }
 };
 
-class Solution
-{
-public:
-    int numDecodingsII(string s)
-    {
-        int len = s.length();
-        // vector<int>dp(len+1, 0);
-        if (s[0] == '0')
-            return 0;
-        int twoDigitBack = 1; // dp[0] = 1;
-        int oneDigitBack = 1; // dp[1] = 1;
-        int currDigit;
-        for (int i = 1; i < len; i++)
-        {
-            currDigit = 0;
-            int oneDigitNum = s[i] - '0';
-            if (oneDigitNum != 0)
-                currDigit += oneDigitBack;
-            int twoDigitNum = s[i - 1] - '0';
-            twoDigitNum = twoDigitNum * 10 + oneDigitNum;
-            if (twoDigitNum >= 10 && twoDigitNum <= 26)
-            {
-                currDigit += twoDigitBack;
-            }
-
-            twoDigitBack = oneDigitBack;
-            oneDigitBack = currDigit;
-        }
-        return oneDigitBack;
-    }
-    int numDecodings(string s)
-    {
-        int len = s.length();
-        vector<int> dp(len + 1, 0);
-        if (s[0] == '0')
-            return 0;
-        dp[0] = 1;
-        dp[1] = 1;
-        for (int i = 1; i < len; i++)
-        {
-            dp[i + 1] = 0;
-            int oneDigitNum = s[i] - '0';
-            if (oneDigitNum != 0)
-                dp[i + 1] += dp[i];
-            int twoDigitNum = s[i - 1] - '0';
-            twoDigitNum = twoDigitNum * 10 + oneDigitNum;
-            if (twoDigitNum >= 10 && twoDigitNum <= 26)
-            {
-                dp[i + 1] += dp[i - 1];
-            }
-        }
-        return dp[len];
-    }
-};
-
 void file_io()
 {
     ios::sync_with_stdio(0);

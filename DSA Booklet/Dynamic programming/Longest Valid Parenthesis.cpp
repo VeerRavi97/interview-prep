@@ -38,7 +38,7 @@ int longestValidParentheses(string str)
 {
     int res = 0;
     int lp = 0, rp = 0;
-    for (int i = 0; i < str.length(); i++)
+    for (int i = 0; i < str.length(); i++) // left to right, left <=right always
     {
         if (str[i] == '(')
             lp++;

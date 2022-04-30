@@ -19,7 +19,7 @@ void file_io()
 #endif
 }
 
-int subsetSums(vector<int> &v, int n, int range)
+int allSums(vector<int> &v, int n, int range)
 {
     vector<int> possible(range + 1, 0);
     possible[0] = 1;
@@ -79,6 +79,65 @@ void dfs(vector<vector<int>> &dp, vector<int> &v, int r, int c, string path)
         dfs(dp, v, rnbr, cnbr, path + temp);
 }
 
+int isSubsetRecur(vector<int> &v, vector<vector<int>> &dp, int n, int target, int csum = 0, int idx = 0)
+{
+    if (idx == n)
+    {
+        if (csum == target)
+            return dp[idx][csum] = 1;
+        return dp[idx][csum] = 0;
+    }
+    if (dp[idx][csum] != -1)
+        return dp[idx][csum];
+    int exclude = isSubsetRecur(v, dp, n, target, csum, idx + 1);
+    int include = 0;
+    if (csum + v[idx] <= target)
+        include = isSubsetRecur(v, dp, n, target, csum + v[idx], idx + 1);
+    return dp[idx][csum] = (include || exclude);
+}
+
+int isSubsetRecurII(vector<int> &v, vector<vector<int>> &dp, int n, int target, int idx = 0)
+{
+    if (idx == n)
+    {
+        if (target == 0)
+            return dp[idx][target] = 1;
+        return dp[idx][target] = 0;
+    }
+    if (dp[idx][target] != -1)
+        return dp[idx][target];
+    int exclude = isSubsetRecurII(v, dp, n, target, idx + 1);
+    int include = 0;
+    if (v[idx] <= target)
+        include = isSubsetRecurII(v, dp, n, target - v[idx], idx + 1);
+    return dp[idx][target] = (include || exclude);
+}
+
+int isSubsetRecurIII(vector<int> &v, vector<vector<int>> &dp, int n, int target)
+{
+    if (target == 0)
+        return 1;
+    if (n == 0)
+    {
+        if (target == v[0])
+            return dp[n][target] = 1;
+        return dp[n][target] = 0;
+    }
+    if (dp[n][target] != -1)
+        return dp[n][target];
+    int exclude = isSubsetRecurIII(v, dp, n - 1, target);
+    int include = 0;
+    if (v[n] <= target)
+        include = isSubsetRecurIII(v, dp, n - 1, target - v[n]);
+    return dp[n][target] = (include || exclude);
+}
+
+int isSubsetSumTD(vector<int> &v, int n, int target)
+{
+    vector<vector<int>> dp(n + 1, vector<int>(target + 1));
+    return isSubsetRecur(v, dp, n, target);
+}
+
 int isSubsetSum(vector<int> &v, int n, int target)
 {
     vector<vector<int>> dp(n + 1, vector<int>(target + 1));
@@ -92,15 +151,32 @@ int isSubsetSum(vector<int> &v, int n, int target)
         int curr = v[i - 1];
         for (int j = 1; j <= target; j++)
         {
-            if (j < curr)
-                dp[i][j] = dp[i - 1][j];
-            else if (j - curr >= 0)
-                dp[i][j] = dp[i - 1][j] + dp[i - 1][j - curr]; // + , count
+            bool exclude = dp[i - 1][j];
+            bool include = 0;
+            if (curr <= j)
+                include = dp[i - 1][j - curr]; // + , count
+
+            dp[i][j] = include || exclude;
         }
     }
-  //  string path = " ";
-  //  dfs(dp, v, n, target, path);
+    //  string path = " ";
+    //  dfs(dp, v, n, target, path);
     return dp[n][target];
+}
+
+int isSubsetSum(vector<int> &nums, int target)
+{
+    vector<int> possible(target + 1, 0);
+    possible[0] = 1;
+    for (int i = 0; i < nums.size(); i++)
+    {
+        int curr = nums[i];
+        for (int j = target; j >= curr; j--)
+        {
+            possible[j] |= possible[j - curr];
+        }
+    }
+    return possible[target];
 }
 
 int countSubsets(vector<int> &nums, int target)
@@ -145,7 +221,7 @@ int main()
             v.push_back(in);
             range += in;
         }
-        //subsetSums(v, n, range);
+        // subsetSums(v, n, range);
         int cnt = findTargetSumWays(v, target);
         cout << cnt << endl;
     }

@@ -18,7 +18,7 @@ void file_io()
 #endif
 }
 
-int subsetSums(vector<int> &v, int n, int range)
+int moneySums(vector<int> &v, int n, int range)
 {
     vector<int> possible(range + 1, 0);
     possible[0] = 1;
@@ -69,7 +69,7 @@ int main()
             v.push_back(in);
             range += in;
         }
-        subsetSums(v, n, range);
+        moneySums(v, n, range);
     }
 
     //     clock_t end = clock();

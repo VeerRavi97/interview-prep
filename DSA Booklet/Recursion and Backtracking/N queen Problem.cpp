@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 const int N = 8;
 bool issafe(int board[N][N], int i, int j)
@@ -61,7 +61,7 @@ bool solve(int board[N][N], int CurrRow)
       board[CurrRow][col] = 0; // Backtrack
     }
   }
-  //Tried all possibles columns of current row
+  // Tried all possibles columns of current row
   return false;
 }
 int main()

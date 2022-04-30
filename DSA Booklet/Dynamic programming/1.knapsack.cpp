@@ -61,30 +61,30 @@ void dfs(vector<int> &values, vector<int> &weights, int r, int c, int n, vector<
         }
     }
 }
-int recur(vector<int> &values, vector<int> &weights, int rem, int n)
+int recur(vector<int> &values, vector<int> &weights, int w, int n, int idx = 0)
 {
-    if (rem == 0 || n == 0)
-        return 0;
-    if (dp[n][rem] > 0)
-        return dp[n][rem];
-    if (weights[n - 1] > rem)
+    if (idx >= n)
     {
-        return dp[n][rem] = recur(values, weights, rem, n - 1);
+        return 0;
     }
-    int op1 = recur(values, weights, rem, n - 1);
-    int op2 = values[n - 1] + recur(values, weights, rem - weights[n - 1], n - 1);
-    return dp[n][rem] = max(op1, op2);
+    if (dp[idx][w] != -1)
+        return dp[idx][w];
+
+    int exclude = recur(values, weights, w, n, idx + 1);
+    int include = 0;
+    if (w - weights[idx] >= 0)
+        include = values[idx] + recur(values, weights, w - weights[idx], n, idx + 1);
+    return dp[idx][w] = max(exclude, include);
 }
 
-int Maxvalues(vector<int> &values, vector<int> &weights, int rem, int n)
+int Maxvalues(vector<int> &values, vector<int> &weights, int W, int n)
 {
     for (int i = 0; i <= n; i++)
     {
-        for (int j = 0; j <= rem; j++)
-            dp[i][j] = 0;
+        for (int j = 0; j <= W; j++)
+            dp[i][j] = -1;
     }
-    recur(values, weights, rem, n);
-    return dp[n][rem];
+    return recur(values, weights, W, n);
 }
 int MaxvaluesBU(vector<int> &values, vector<int> &weights, int rem, int n)
 {
@@ -139,7 +139,7 @@ int MaxvaluesBUSpaceOptimized(vector<int> &values, vector<int> &weights, int rem
 int MaxvaluesOptimized(vector<int> &values, vector<int> &weights, int W, int n)
 {
     int dp[W + 1];
-    memset(dp, 0, sizeof(dp));
+    // memset(dp, 0, sizeof(dp));
     for (int i = 0; i < n; i++)
     {
         int c = weights[i];
@@ -169,7 +169,7 @@ int main()
         for (int i = 0; i < n; i++)
             cin >> values[i];
 
-        int ans = MaxvaluesBU(values, weights, total, n);
+        int ans = Maxvalues(values, weights, total, n);
         cout << ans << endl;
     }
 

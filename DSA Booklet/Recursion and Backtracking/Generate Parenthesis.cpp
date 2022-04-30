@@ -12,20 +12,20 @@ typedef vector<vi> vvi;
 class Solution
 {
 public:
-    void recur(vector<string> &res, int n, int no = 0, int nc = 0, string curr = "", int idx = 0)
+    void recur(vector<string> &res, int n, int opening = 0, int closing = 0, string curr = "", int idx = 0)
     {
         if (idx == 2 * n)
         {
             res.push_back(curr);
             return;
         }
-        if (no < n)
+        if (opening < n)
         {
-            recur(res, n, no + 1, nc, curr + '(', idx + 1);
+            recur(res, n, opening + 1, closing, curr + '(', idx + 1);
         }
-        if (nc < no)
+        if (closing < opening)
         {
-            recur(res, n, no, nc + 1, curr + ')', idx + 1);
+            recur(res, n, opening, closing + 1, curr + ')', idx + 1);
         }
     }
     vector<string> generateParenthesis(int n)

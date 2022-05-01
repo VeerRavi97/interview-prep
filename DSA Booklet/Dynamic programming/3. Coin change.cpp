@@ -63,9 +63,9 @@ ll totalCoinsDistict(vector<ll> &coins, ll amount)
     dp[0] = 1;
     for (auto coin : coins)
     {
-        for (ll i = 1; i <= amount; i++)
-            if (coin <= i)
-                dp[i] += dp[i - coin] % MOD;
+        for (ll target = 1; target <= amount; target++)
+            if (coin <= target)
+                dp[target] += dp[target - coin] % MOD;
     }
     return dp[amount] % MOD;
 }
@@ -74,19 +74,19 @@ ll totalCoinsDistict(vector<ll> &coins, ll amount)
  * Problem URL:  https://cses.fi/problemset/task/1635/
  */
 
-ll totalCoinsAllPermutations(vector<ll> &nums, ll target)
+ll totalCoinsAllPermutations(vector<ll> &nums, ll amount)
 {
-    vector<ll> dp(target + 1, 0);
+    vector<ll> dp(amount + 1, 0);
     dp[0] = 1;
-    for (ll i = 1; i <= target; ++i)
+    for (ll target = 1; target <= amount; target++)
     {
-        for (auto n : nums)
+        for (auto &num : nums)
         {
-            if (i >= n)
-                dp[i] += (dp[i - n] % MOD);
+            if (num <= target)
+                dp[target] += (dp[target - num] % MOD);
         }
     }
-    return dp[target] % MOD;
+    return dp[amount] % MOD;
 }
 
 void file_io()

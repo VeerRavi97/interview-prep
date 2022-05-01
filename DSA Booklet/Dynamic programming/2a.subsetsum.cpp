@@ -98,6 +98,8 @@ int isSubsetRecur(vector<int> &v, vector<vector<int>> &dp, int n, int target, in
 
 int isSubsetRecurII(vector<int> &v, vector<vector<int>> &dp, int n, int target, int idx = 0)
 {
+    if (target == 0)
+        return 1;
     if (idx == n)
     {
         if (target == 0)

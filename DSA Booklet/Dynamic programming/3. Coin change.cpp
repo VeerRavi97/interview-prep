@@ -8,22 +8,50 @@
 using namespace std;
 typedef vector<int> vi;
 typedef vector<vi> vvi;
+
+int recur(vector<int> &coins, vector<vector<int>> &dp, int n, int target, int idx = 0)
+{
+    if (target == 0)
+        return 0;
+    if (idx == n)
+        return 1e9; // Not INT_MAX, 1+INT_MAX: error
+    if (dp[idx][target] != -1)
+        return dp[idx][target];
+    int exclude = recur(coins, dp, n, target, idx + 1);
+    int include = INT_MAX;
+    if (coins[idx] <= target)
+    {
+        include = 1 + recur(coins, dp, n, target - coins[idx], idx);
+    }
+    return dp[idx][target] = min(exclude, include);
+}
+
+int coinChange(vector<int> &coins, int target)
+{
+    int n = coins.size();
+    vector<vector<int>> dp(n + 1, vector<int>(target + 1, -1));
+    int res = recur(coins, dp, n, target);
+    return (res == 1e9) ? -1 : res;
+}
+
 int minimumNumberOfCoins(vector<int> &coins, int amount)
 {
-    vector<int> dp(amount + 1, INT_MAX);
+    vector<int> dp(amount + 1, 1e9);
     dp[0] = 0;
     for (auto coin : coins)
     {
-        for (int i = 1; i <= amount; i++)
-            if (coin <= i)
+        for (int target = 1; target <= amount; target++)
+        {
+            int exclude = dp[target];
+            int include = INT_MAX;
+            if (coin <= target)
             {
-                if (dp[i - coin] != INT_MAX && dp[i - coin] + 1 < dp[i])
-                {
-                    dp[i] = dp[i - coin] + 1;
-                }
+                include = 1 + dp[target - coin];
             }
+            dp[target] = min(include, exclude);
+        }
     }
-    return dp[amount] == INT_MAX ? -1 : dp[amount];
+    return dp[amount] == 1e9 ? -1 : dp[amount];
 }
 
 int totalCoinsDistict(int amount, vector<int> &coins)

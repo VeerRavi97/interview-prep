@@ -2,12 +2,13 @@
 #include <algorithm>
 #include <vector>
 #define ll long long
-#define MOD 10000000007
+
 #define all(c) c.begin(), c.end()
 #define endl '\n'
 using namespace std;
 typedef vector<int> vi;
 typedef vector<vi> vvi;
+unsigned const int MOD = 1e9 + 7;
 
 int recur(vector<int> &coins, vector<vector<int>> &dp, int n, int target, int idx = 0)
 {
@@ -18,7 +19,7 @@ int recur(vector<int> &coins, vector<vector<int>> &dp, int n, int target, int id
     if (dp[idx][target] != -1)
         return dp[idx][target];
     int exclude = recur(coins, dp, n, target, idx + 1);
-    int include = INT_MAX;
+    int include = 1e9;
     if (coins[idx] <= target)
     {
         include = 1 + recur(coins, dp, n, target - coins[idx], idx);
@@ -43,7 +44,7 @@ int minimumNumberOfCoins(vector<int> &coins, int amount)
         for (int target = 1; target <= amount; target++)
         {
             int exclude = dp[target];
-            int include = INT_MAX;
+            int include = 1e9;
             if (coin <= target)
             {
                 include = 1 + dp[target - coin];
@@ -53,25 +54,31 @@ int minimumNumberOfCoins(vector<int> &coins, int amount)
     }
     return dp[amount] == 1e9 ? -1 : dp[amount];
 }
-
-int totalCoinsDistict(int amount, vector<int> &coins)
+/**
+ * Problem URL: https://cses.fi/problemset/task/1636/
+ */
+ll totalCoinsDistict(vector<ll> &coins, ll amount)
 {
-    vector<int> dp(amount + 1, 0);
+    vector<ll> dp(amount + 1, 0);
     dp[0] = 1;
     for (auto coin : coins)
     {
-        for (int i = 1; i <= amount; i++)
+        for (ll i = 1; i <= amount; i++)
             if (coin <= i)
-                dp[i] += dp[i - coin];
+                dp[i] += dp[i - coin] % MOD;
     }
-    return dp[amount];
+    return dp[amount] % MOD;
 }
 
-int totalCoinsAllPermutations(vector<int> &nums, int target)
+/**
+ * Problem URL:  https://cses.fi/problemset/task/1635/
+ */
+
+ll totalCoinsAllPermutations(vector<ll> &nums, ll target)
 {
-    vector<int> dp(target + 1, 0);
+    vector<ll> dp(target + 1, 0);
     dp[0] = 1;
-    for (int i = 1; i <= target; ++i)
+    for (ll i = 1; i <= target; ++i)
     {
         for (auto n : nums)
         {
@@ -79,7 +86,7 @@ int totalCoinsAllPermutations(vector<int> &nums, int target)
                 dp[i] += (dp[i - n] % MOD);
         }
     }
-    return dp[target];
+    return dp[target] % MOD;
 }
 
 void file_io()
@@ -96,18 +103,19 @@ int main()
 {
     clock_t start = clock();
     file_io();
-    int tc;
-    cin >> tc;
+    int tc = 1;
+    //  cin >> tc;
     while (tc--)
     {
         int n;
+        ll target = 0;
         cin >> n;
-        vector<int> v(n, 0);
+        cin >> target;
+        vector<ll> v(n, 0);
         for (int i = 0; i < n; i++)
             cin >> v[i];
-        int target = 0;
-        cin >> target;
-        auto ans = minimumNumberOfCoins(v, target);
+
+        auto ans = totalCoinsDistict(v, target);
         cout << ans << endl;
     }
     clock_t end = clock();

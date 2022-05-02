@@ -115,7 +115,7 @@ int main()
         for (int i = 0; i < n; i++)
             cin >> v[i];
 
-        auto ans = totalCoinsDistict(v, target);
+        auto ans = totalCoinsAllPermutations(v, target);
         cout << ans << endl;
     }
     clock_t end = clock();

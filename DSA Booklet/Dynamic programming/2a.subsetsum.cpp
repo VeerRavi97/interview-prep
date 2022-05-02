@@ -54,29 +54,55 @@ bool isValid(int r, int c)
 {
     return (r >= 0 && c >= 0);
 }
-void dfs(vector<vector<int>> &dp, vector<int> &v, int r, int c, string path)
+
+class Utility
 {
-    if (r == 0 || c == 0)
+public:
+    static void print(vector<int> &v)
     {
-        cout << path << endl;
+        for (auto x : v)
+            cout << x << " ";
+        cout << endl;
+    }
+};
+/**
+ * @brief
+ * 5 10
+ * 1 2 3 4 5
+ */
+void dfs(vector<vector<int>> &dp, vector<int> &v, int r, int c, vector<int> &path)
+{
+    if (c == 0)
+    {
+        Utility::print(path);
         return;
     }
 
-    if (dp[r - 1][c] > 0)
+    if (r == 0)
     {
-        int rnbr = r - 1;
-        int cnbr = c;
-        if (isValid(rnbr, cnbr))
-            dfs(dp, v, rnbr, cnbr, path);
+        if (dp[r][c] == 1)
+        {
+            path.push_back(v[r]);
+            Utility::print(path);
+            path.pop_back();
+        }
+        return;
     }
-    stringstream ss;
-    ss << v[r - 1];
-    string temp = "";
-    ss >> temp;
-    int rnbr = r - 1;
-    int cnbr = c - v[r - 1];
-    if (isValid(rnbr, cnbr) && dp[rnbr][cnbr] > 0)
-        dfs(dp, v, rnbr, cnbr, path + temp);
+
+    int include = 0;
+    if (c - v[r] >= 0)
+    {
+        include = dp[r - 1][c - v[r]];
+        if (include)
+        {
+            path.push_back(v[r]);
+            if (isValid(r - 1, c - v[r]))
+                dfs(dp, v, r - 1, c - v[r], path);
+            path.pop_back();
+        }
+    }
+    int exclude = dp[r - 1][c];
+    dfs(dp, v, r - 1, c, path);
 }
 
 int isSubsetRecurIII(vector<int> &v, vector<vector<int>> &dp, int n, int target, int csum = 0, int idx = 0)
@@ -161,7 +187,8 @@ int isSubsetSum(vector<int> &v, int n, int target)
         }
     }
     //  string path = " ";
-    //  dfs(dp, v, n, target, path);
+    vector<int> path;
+    dfs(dp, v, n - 1, target, path);
     return dp[n - 1][target];
 }
 
@@ -226,8 +253,8 @@ int countSubsets(vector<int> &nums, int target)
         {
             possible[j] = (possible[j] + possible[j - curr]) % MOD;
         }
-        return possible[target] % MOD;
     }
+    return possible[target] % MOD;
 }
 
 int findTargetSumWays(vector<int> &nums, int target)
@@ -242,8 +269,8 @@ int main()
 {
     clock_t start = clock();
     file_io();
-    int tc;
-    cin >> tc;
+    int tc = 1;
+    // cin >> tc;
     while (tc--)
     {
         int n, target;
@@ -258,7 +285,7 @@ int main()
             range += in;
         }
         // subsetSums(v, n, range);
-        int cnt = findTargetSumWays(v, target);
+        int cnt = isSubsetSum(v, n, target);
         cout << cnt << endl;
     }
 

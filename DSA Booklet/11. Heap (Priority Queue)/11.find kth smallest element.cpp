@@ -1,8 +1,28 @@
 #include <iostream>
 #include <vector>
 #include <queue>
+#include <random>
+#include <algorithm>
 using namespace std;
 typedef vector<int> vi;
+
+class Utils
+{
+public:
+    static void random_shuffle(vector<int> &v)
+    {
+        srand(time(nullptr));
+        for (int i = v.size(); i >= 0; i--)
+        {
+            int start = 0;
+            int end = i - 1;
+            int random_idx = start + rand() % (end - start + 1);
+            // rand() % i;
+            swap(v[random_idx], v[i]);
+        }
+    }
+};
+
 int kthsmallest_minheap(vi &v, int k)
 {
     priority_queue<int, vi, greater<int>> pq; // min heap
@@ -39,18 +59,21 @@ int kthsmallest_maxheap(vi &v, int k)
     ans = pq.top();
     return ans;
 }
-int partition(vi &v, int start, int end)
+int partition(vector<int> &nums, int start, int end)
 {
-    int pIdx = start;
-    int pivot = v[end];
-    for (int i = start; i <= end; i++)
+    int pivot = nums[end];
+    int j = start - 1;
+    for (int i = start; i < end; i++)
     {
-        if (v[i] < pivot)
-            swap(v[pIdx++], v[i]);
+        if (nums[i] < pivot)
+        {
+            swap(nums[i], nums[++j]);
+        }
     }
-    swap(v[++pIdx], v[end]);
-    return pIdx;
+    swap(nums[end], nums[++j]);
+    return j;
 }
+
 int randompartition(vi &v1, int start, int end)
 {
     int n = end - start;
@@ -60,31 +83,28 @@ int randompartition(vi &v1, int start, int end)
     return pindex;
 }
 
-int randomizedquickselect(vi &v1, int start, int end, int k)
+int quickSelect(vector<int> &nums, int start, int end, int k)
 {
-
-    if (k <= end - start + 1)
+    if (start <= end)
     {
-
-        int pindex = partition(v1, start, end);
-        // cout << "sorted " << pindex << " " <<  v1[pindex] << "\n";
-
-        int leftsublength = pindex - start + 1; // A[start,pindex],length of left subarray
-        if (leftsublength == k)
-        {
-            return v1[pindex];
-        }
-        else if (leftsublength > k)
-        { // more smaller elements in left subarray
-            return randomizedquickselect(v1, start, pindex - 1, k);
-        }
+        int p_idx = partition(nums, start, end);
+        // int leftLL = p_idx - start + 1;
+        if (p_idx == k)
+            return nums[p_idx];
+        else if (k < p_idx)
+            return quickSelect(nums, start, p_idx - 1, k);
         else
-        {
-            int remk = k - leftsublength;
-            return randomizedquickselect(v1, pindex + 1, end, remk);
-        }
+            return quickSelect(nums, p_idx + 1, end, k);
     }
     return -1;
+}
+int findKthLargest(vector<int> &nums, int k)
+{
+    if (nums.size() == 0)
+        return 0;
+    Utils::random_shuffle(nums);
+    int ans = quickSelect(nums, 0, nums.size() - 1, nums.size() - k);
+    return ans;
 }
 
 int main()
@@ -109,12 +129,6 @@ int main()
         cout << kthsmallest_maxheap(v, k + 1) << " ";
     }
     cout << "\n";
-
-    for (int k = 0; k < n; k++)
-    {
-        vi v1(v);
-        cout << randomizedquickselect(v1, 0, n - 1, k + 1) << " ";
-    }
 
     return 0;
 }

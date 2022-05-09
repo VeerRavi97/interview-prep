@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <queue>
 using namespace std;
 typedef pair<int, int> ii;
 typedef pair<int, ii> pii;
@@ -35,6 +37,11 @@ void file_io()
   freopen("output.txt", "w", stdout);
 #endif
 }
+
+/**
+* https://www.interviewbit.com/problems/merge-k-sorted-arrays/
+
+*/
 
 void merge(vvi &m)
 {

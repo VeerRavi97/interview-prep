@@ -8,7 +8,29 @@
 using namespace std;
 typedef vector<int> vi;
 typedef vector<vi> vvi;
+
+int recur(vi &cost, vi &dp, int idx)
+{
+    if (idx <= 1)
+        return 0;
+    int &ans = dp[idx];
+    if (ans == -1)
+        return ans;
+    int oneStepCost = recur(cost, dp, idx - 1) + cost[idx - 1];
+    int twoStepCost = INT_MAX;
+    if (idx - 2 >= 0)
+        twoStepCost = recur(cost, dp, idx - 2) + cost[idx - 2];
+    return ans = min(oneStepCost, twoStepCost);
+}
+
 int minCostClimbingStairs(vector<int> &cost)
+{
+    int n = cost.size();
+    vector<int> dp(n + 1, 0);
+    return recur(cost, dp, n);
+}
+
+int minCostClimbingStairsBU(vector<int> &cost)
 {
     int n = cost.size();
     vector<int> dp(n + 1, 0);
@@ -21,6 +43,23 @@ int minCostClimbingStairs(vector<int> &cost)
         dp[i] = min(oneStepCost, twoStepCost);
     }
     return dp[n];
+}
+int minCostClimbingStairsSpaceOptimized(vector<int> &cost)
+{
+    int n = cost.size();
+    // vector<int> dp(n + 1, 0);
+    int secondPrev = 0;
+    int prev = 0;
+    int curr = 0;
+    for (int i = 2; i <= n; i++)
+    {
+        int oneStepCost = prev + cost[i - 1];
+        int twoStepCost = secondPrev + cost[i - 2];
+        curr = min(oneStepCost, twoStepCost);
+        secondPrev = prev;
+        prev = curr;
+    }
+    return prev;
 }
 
 void file_io()

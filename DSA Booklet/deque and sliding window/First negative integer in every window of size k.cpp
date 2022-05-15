@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <deque>
 using namespace std;
 #define ll long long
 #define MOD 1e9 + 7
@@ -66,7 +68,7 @@ int main()
         int k;
         cin >> k;
         auto ans = solve(v, n, k);
-        //cout << ans << endl;
+        // cout << ans << endl;
     }
 
     clock_t end = clock();

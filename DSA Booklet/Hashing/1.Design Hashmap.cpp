@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/design-hashmap
 
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 const unsigned int table_size = 111111;
 const unsigned int mod = 1e9 + 7;

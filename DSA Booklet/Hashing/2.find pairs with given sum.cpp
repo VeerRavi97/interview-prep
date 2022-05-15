@@ -18,7 +18,7 @@ void file_io()
     freopen("output.txt", "w", stdout);
 #endif
 }
-int findPairs(vector<int> &v, int n, int target)
+int CountPairs(vector<int> &v, int n, int target)
 {
     unordered_map<int, int> mp;
     long long count = 0;
@@ -31,6 +31,56 @@ int findPairs(vector<int> &v, int n, int target)
 
     return count;
 }
+vector<int> twoSum(vector<int> &nums, int target)
+{
+
+    vector<pair<int, int>> v;
+    for (int i = 0; i < nums.size(); i++)
+    {
+        v.push_back(make_pair(nums[i], i));
+    }
+
+    vector<int> res(2, -1);
+    int left = 0;
+    int right = nums.size() - 1;
+    sort(v.begin(), v.end());
+    while (left < right)
+    {
+        int sum = v[left].first + v[right].first;
+        if (sum == target)
+        {
+            res[0] = v[left].second;
+            res[1] = v[right].second;
+            return res;
+        }
+        else if (sum > target)
+            right--;
+        else
+            left++;
+    }
+
+    return res;
+}
+
+vector<int> twoSum(vector<int> &nums, int target)
+{
+    unordered_map<int, int> mp;
+    vector<int> res;
+    for (int i = 0; i < nums.size(); i++)
+    {
+        int first = nums[i];
+        int second = target - first;
+        if (mp.count(second))
+        {
+            res.push_back(i);
+            res.push_back(mp[second]);
+        }
+
+        mp.insert({first, i});
+    }
+    return res;
+}
+
 int main()
 {
     clock_t start = clock();
@@ -48,7 +98,6 @@ int main()
             cin >> in;
             v.push_back(in);
         }
-        cout << findPairs(v, n, x) << endl;
     }
 
     clock_t end = clock();

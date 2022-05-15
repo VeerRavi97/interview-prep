@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <deque>
 using namespace std;
 #define ll long long
 #define MOD 1e9 + 7
@@ -35,7 +37,7 @@ vector<int> solve(vector<int> &nums, int k)
     {
         res.push_back(nums[dq.front()]);
         int l = r - k + 1;
-        while (!dq.empty() && dq.front() < l) // out of window
+        while (!dq.empty() && dq.front() < l) // out of window , if will work as well
             dq.pop_front();
 
         while (!dq.empty() && nums[r] >= nums[dq.back()])

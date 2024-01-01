@@ -1,6 +1,0 @@
-Find the number of disconnected components in the given directed graph.
-Check if a given graph is tree or not
-Topological Sorting/Find the ordering of tasks from given dependencies
-Given a directed graph, find whether there exists a cycle or not.If it does exist print it. (undirected)
-Hamiltonian cycle 
-Dijastra Algorithm
